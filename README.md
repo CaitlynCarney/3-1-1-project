@@ -95,7 +95,7 @@ explain the project for resume
 - Is there a link to which form of reporting is responded to quickest and slowest?
 
 ### Target variable
-- Level of Delay
+- 'level_of_delay'
     - Made in the feature engineering step.
 
 </details>
@@ -153,23 +153,27 @@ explain the project for resume
     
 | Attribute | Definition | Data Type |
 | ----- | ----- | ----- | 
-| Category | This general category was developed to place 311 services in a high level category, different than their respective department. | object |
-| CASEID | The unique case reference number is assigned by the 311 Lagan customer relationship management system. | int64 |
-| OPENEDDATETIME | The date and time that a case was submitted. | object |
-| SLA_Date | Every service request type has a due date assigned to the request, based on the request type name. The SLA Date is the due date and time for the request type based on the service level agreement (SLA). Each service request type has a timeframe in which it is scheduled to be addressed. | object |
-| CLOSEDDATETIME | The date and time that the case/request was was closed. If blank, the request has not been closed as of the Report Ending Date. | object |
-| Late (Yes/No) | This indicates whether the case has surpassed its Service Level Agreement due date for the specific service request. | object |
-| Dept | The City department to whom the case is assigned. | object |
-| REASONNAME | The department division within the City deaprtment to whom the case is assigned. | object |
-| TYPENAME | The service request type name for the issue being reported. Examples include stray animals, potholes, overgrown yards, junk vehicles, traffic signal malfunctions, etc. | object |
-| CaseStatus | The status of a case which is either open or closed. | object |
-| SourceID | The source id is the method of input from which the case was received. | object |
-| OBJECTDESC | 	The address or intersection for the reported case/service requested. | object |
-| Council District | The Council District number from where the issue was reported. | int64 |
-| XCOORD | 	The X coordinate of the case reported. (latitude) | float64 |
-| YCOORD | The Y coordinate of the case reported. (longitude) | float64 |
-| Report Starting Date | The start date range for the case open date for this extract file. | object |
-| Report Ending Date | The end date range for the case open date for this extract file. | object |
+| category | This general category was developed to place 311 services in a high level category, different than their respective department. | object |
+| case_id | The unique case reference number is assigned by the 311 Lagan customer relationship management system. | int64 |
+| open_date | The date and time that a case was submitted. | object |
+| due_date | Every service request type has a due date assigned to the request, based on the request type name. The SLA Date is the due date and time for the request type based on the service level agreement (SLA). Each service request type has a timeframe in which it is scheduled to be addressed. | object |
+| closed_date | The date and time that the case/request was was closed. If blank, the request has not been closed as of the Report Ending Date. | object |
+| is_late | This indicates whether the case has surpassed its Service Level Agreement due date for the specific service request. | object |
+| dept | The City department to whom the case is assigned. | object |
+| call_reason | The department division within the City deaprtment to whom the case is assigned. | object |
+| case_type | The service request type name for the issue being reported. Examples include stray animals, potholes, overgrown yards, junk vehicles, traffic signal malfunctions, etc. | object |
+| case_status | The status of a case which is either open or closed. | object |
+| source_id | The source id is the method of input from which the case was received. | object |
+| address | 	The address or intersection for the reported case/service requested. | object |
+| council_district | The Council District number from where the issue was reported. | int64 |
+| longitude | 	The X coordinate of the case reported. (latitude) | float64 |
+| latitude | The Y coordinate of the case reported. (longitude) | float64 |
+| report_start_date | The start date range for the case open date for this extract file. | object |
+| report_end_date | The end date range for the case open date for this extract file. | object |
+| days_open | The number of days between a case being opened and closed. | float64 |
+| resolution_days_due | The number of days between a case being opened and due. | float64 |
+| days_before_or_after_due | How long before or after the due date were the cases closed | float64 |
+| level_of_delay |Level of delay based on days_before_or_after_due | object |
   
     
 \*  Indicates the target feature in this Zillow data.
