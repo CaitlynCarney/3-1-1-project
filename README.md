@@ -23,18 +23,21 @@ ___
   <summary>Click to expand!</summary>
 
 ### Description
-- 
+- Predict the level of response time delay for each 311 calls in the San Antonio area.
 
 ### Goals
-- 
+- Make a model to predict the level of delay in response time for a 311 call.
+- To see how response time is affected by different key features.
+- Find the main drivers of delayed response time.
     
 ### Where did you get the data?
-- 
-
-Project Name: ___
+- Data was gathered from "The City of San Antonio" website
+    - https://data.sanantonio.gov/dataset/service-calls/resource/20eb6d22-7eac-425a-85c1-fdb365fd3cd7
+    
+Project Name: 3-1-1 Response Times (subject to change)
 
 explain the project for resume
-    
+
 
 </details>
     
@@ -48,20 +51,32 @@ explain the project for resume
 
 ### Projet Outline:
     
-- Acquisiton of data
+- Acquisiton of data:
+    - Download CSV from the City of San Antonio website.
+        - https://data.sanantonio.gov/dataset/service-calls/resource/20eb6d22-7eac-425a-85c1-fdb365fd3cd7 
+    - Bring data into python
+    - Run basic exploration
+        - .info()
+        - .describe()
+        - .isnull()
+        - .value_counts()
+        - basic univariate
+        - key take aways
 - Prepare and clean data with python - Jupyter Labs
+    - Set index
     - Drop
+    - Merge some feature values together (only the ones that go with each other)
     - Rename
     - Create
-    - Dummies
+    - Bin to create new categorical feature(s)
     - Etc.
 - Explore data:
     - What are the features?
-    - Null values:
-        - Are the fixable or should they just be deleted.
     - Categorical or continuous values.
-    - Make graphs that show:
-        - At least 2.
+    - Make visuals (at least 2 to be used in deliverables)
+        - Univariate
+        - Bivariate
+        - Multivariate
 - Run statistical analysis:
     - At least 2.
 - Modeling:
@@ -70,11 +85,18 @@ explain the project for resume
     - Test Data.
     - Conclude results.
         
-### Hypothesis
-- 
+### Hypothesis/Questions
+- Is the average number of calls in an area affect the response time?
+- Does the type of call in an area effect the level of delay? (Loose dog on the south side vs loose dog on the north side)
+- Does the specific location effect the delay time?
+- Do number of priority level calls differ throughout the city?
+- Does category/department affect response time?
+- Is response time for issue X different between geographical location Y when compared to the average response time? (or other geographical location?)
+- Is there a link to which form of reporting is responded to quickest and slowest?
 
 ### Target variable
-- 
+- Level of Delay
+    - Made in the feature engineering step.
 
 </details>
 
@@ -131,9 +153,23 @@ explain the project for resume
     
 | Attribute | Definition | Data Type |
 | ----- | ----- | ----- | 
-| Attribute | Definition | Data Type |
-| Attribute | Definition | Data Type |
-| Attribute | Definition | Data Type |
+| Category | This general category was developed to place 311 services in a high level category, different than their respective department. | object |
+| CASEID | The unique case reference number is assigned by the 311 Lagan customer relationship management system. | int64 |
+| OPENEDDATETIME | The date and time that a case was submitted. | object |
+| SLA_Date | Every service request type has a due date assigned to the request, based on the request type name. The SLA Date is the due date and time for the request type based on the service level agreement (SLA). Each service request type has a timeframe in which it is scheduled to be addressed. | object |
+| CLOSEDDATETIME | The date and time that the case/request was was closed. If blank, the request has not been closed as of the Report Ending Date. | object |
+| Late (Yes/No) | This indicates whether the case has surpassed its Service Level Agreement due date for the specific service request. | object |
+| Dept | The City department to whom the case is assigned. | object |
+| REASONNAME | The department division within the City deaprtment to whom the case is assigned. | object |
+| TYPENAME | The service request type name for the issue being reported. Examples include stray animals, potholes, overgrown yards, junk vehicles, traffic signal malfunctions, etc. | object |
+| CaseStatus | The status of a case which is either open or closed. | object |
+| SourceID | The source id is the method of input from which the case was received. | object |
+| OBJECTDESC | 	The address or intersection for the reported case/service requested. | object |
+| Council District | The Council District number from where the issue was reported. | int64 |
+| XCOORD | 	The X coordinate of the case reported. (latitude) | float64 |
+| YCOORD | The Y coordinate of the case reported. (longitude) | float64 |
+| Report Starting Date | The start date range for the case open date for this extract file. | object |
+| Report Ending Date | The end date range for the case open date for this extract file. | object |
   
     
 \*  Indicates the target feature in this Zillow data.
